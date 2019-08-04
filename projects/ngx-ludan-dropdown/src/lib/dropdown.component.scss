@@ -1,0 +1,47 @@
+.selected-item {
+  background: grey;
+  height: 40px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  i {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &.active {
+    background: blue;
+    color: white;
+    i {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: 40px;
+  width: calc(100% - 2px);
+  left: 0;
+  color: black;
+  border: 1px solid grey;
+
+  .item {
+    border-bottom: 1px solid grey;
+    padding: 5px 10px;
+    cursor: pointer;
+    &:hover {
+      background: grey;
+    }
+
+    &.last {
+      border-bottom: 1px solid white;
+      &:hover {
+        border-bottom: 1px solid grey;
+      }
+    }
+  }
+}

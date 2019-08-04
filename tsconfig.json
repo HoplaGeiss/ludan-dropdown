@@ -17,7 +17,15 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-ludan-dropdown": [
+        "dist/ngx-ludan-dropdown"
+      ],
+      "ngx-ludan-dropdown/*": [
+        "dist/ngx-ludan-dropdown/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
