@@ -1,46 +1,71 @@
-.selected-item {
-  background: grey;
-  height: 40px;
-  padding: 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+$primary: #e3875a;
+$grey: #dddddd;
+
+.dropdown-container {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   position: relative;
 
-  i {
-    cursor: pointer;
-    user-select: none;
-  }
-
-  &.active {
-    background: blue;
+  .selected-item {
+    background: $primary;
+    height: 40px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     color: white;
-    i {
-      transform: rotate(180deg);
+    cursor: pointer;
+
+    .chevron {
+      user-select: none;
+      transition: 300ms;
+    }
+
+    &.active {
+      background: $primary;
+      color: white;
+      .chevron {
+        transform: rotate(180deg);
+      }
     }
   }
-}
 
-.dropdown {
-  position: absolute;
-  top: 40px;
-  width: calc(100% - 2px);
-  left: 0;
-  color: black;
-  border: 1px solid grey;
-
-  .item {
-    border-bottom: 1px solid grey;
-    padding: 5px 10px;
-    cursor: pointer;
-    &:hover {
-      background: grey;
+  .dropdown {
+    &.hidden {
+      border-bottom: none;
+      .item {
+        color: white;
+        height: 0;
+        border: none !important;
+      }
     }
 
-    &.last {
-      border-bottom: 1px solid white;
+    overflow: hidden;
+    position: absolute;
+    top: 40px;
+    width: calc(100% - 2px);
+    left: 0;
+    color: black;
+    border: 1px solid $grey;
+
+    .item {
+      transition: 200ms;
+      border-bottom: 1px solid $grey;
+      padding: 0 10px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+
+      cursor: pointer;
       &:hover {
-        border-bottom: 1px solid grey;
+        background: $grey;
+      }
+
+      &.last {
+        border-bottom: 1px solid white;
+        &:hover {
+          border-bottom: 1px solid $grey;
+        }
       }
     }
   }
